@@ -14,20 +14,19 @@
     <script>
         $('#btn').click(function (param) {
             $.ajax({
-                type: "get",
+                type: "POST",
                 url: "./ajax-json.php",
                 // data: "name=林志玲&age=18&school=南京大学",
                 success: function (xhr) {
-                     obj = JSON.parse(xhr);
+                    obj = JSON.parse(xhr);
                     console.log(obj);
                     for (const key in obj) {
                         if (obj.hasOwnProperty(key)) {
                             const element = obj[key];
-                            console.log(key,element);    
+                            console.log(key, element);
                         }
                     }
-                    
-                    
+                    console.log('新加的');
                 },
                 error: function (xhr) {
                     alert(xhr.status);
