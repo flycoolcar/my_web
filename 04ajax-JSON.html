@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery-Ajax</title>
+    <script src="./JS/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+    <button type="submit" id="btn">提交</button>
+    <script>
+        $('#btn').click(function (param) {
+            $.ajax({
+                type: "get",
+                url: "./ajax.php",
+                data: "name=林志玲&age=18&school=南京大学",
+                success: function (msg) {
+                    alert(msg);
+                },
+                error: function (xhr) {
+                    alert(xhr.status);
+                },
+            });
+        });
+    </script>
+</body>
+
+</html>

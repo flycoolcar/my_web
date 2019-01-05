@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ajax</title>
+    <script src="./JS/jquery-3.3.1.min.js"></script>
+    <style lang="">
+        /* *{
+            margin: 0;
+            padding: 0;
+        } */
+    </style>
+</head>
+
+<body>
+    <!-- AJAX
+    AJAX = Asynchronous JavaScript and XML（异步的 JavaScript 和 XML）。
+
+    AJAX 不是新的编程语言，而是一种使用现有标准的新方法。
+
+    AJAX 是与服务器交换数据并更新部分网页的艺术，在不重新加载整个页面的情况下。 -->
+    <button id="btn">提交</button>
+    <script>
+        $('#btn').click(function (event) {
+            // console.log(event.offsetX,event.offsetY);
+            //1 创建 XMLHttpRequest 对象
+
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('GET', './ajax.php', true);
+            xmlhttp.send();
+            xmlhttp.onreadystatechange = function (param) {
+                // console.log('ajax成功！', xmlhttp.readyState, 'status', xmlhttp.status);
+                if (xmlhttp.readyState == 4) {
+                    
+                    if (xmlhttp.status == 200||xmlhttp.status == 304) {
+                        console.log(xmlhttp.responseText);
+
+                    } else {
+                        console.log('错误响应');
+                    }
+
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
